@@ -1,0 +1,20 @@
+* Calix P-Series
+https://www.calix.com/systems/p-series.html
+
+The Calix P-Series is the industry's broadest portfolio of innovative, standards-based optical demark outdoor ONTs for residential and business services. Calix is the most widely deployed fiber access vendor in North America, with over 1000 service providers deploying today. Calix has a long history of innovation in fiber access, including our unique auto-detect technology supporting both 2.5 GPON or point-to-point Gigabit Ethernet.
+** Single Family Unit ONTs
+[[file:image_727GE.png]]
+** Multi-Dwelling Unit ONTs
+[[file:image_766GX.png]]
+** Business Service and Mobile Backhaul ONTs
+[[file:image_767GX-R.png]]
+* Calix T-Series ONTs
+https://aem-dev.calix.com/systems/blm-1500/t-series-onts.html
+
+Designed to work with the Calix BLM1500, the T-Series family of ONTs maximize capital and operational efficiency.
+With the introduction of the T-Series ONT family, Calix is continuing its expansion of the industry's broadest ONT portfolio. T-Series ONTs are designed to work with the BLM 1500 and come in two categories: multi-dwelling unit (MDU) ONTs and home gateway unit (HGU) ONTs. Both types of ONTs support advanced GPON technology and dynamic bandwidth allocation (DBA), maximizing capital and operational efficiency. All T-Series ONTs support voice, high-speed Internet, advanced data services, and IP multicast video.
+** HOME GATEWAY UNIT (HGU)
+[[file:image_t077G.png]]
+** MULTI-DWELLING UNIT (MDU)
+[[file:image_T720G.png]]
+* Calix E-Series

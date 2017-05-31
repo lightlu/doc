@@ -1,0 +1,49 @@
+# -*- toc: nil; after-save-hook: org-html-export-to-html; org-export-in-background: t; -*-
+* Calix GigaFamily Service Provider's Guide
+** Turning up a GigaFamily Device
+*** GigaFamily Activation and Configuration Options - GPON
+**** Home Gateway Configuration via Consumer Connect Plus
+https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/prem/op/p-gw-op/ae/800-spg/index.htm?toc71904230.htm?70873.htm
+
+a service provider can apply a common, pre-defined RG configuration over multiple GigaFamily units using Consumer Connect Plus.
+it has the ability to either manually upload RG configuration profiles directly to the RSG on a per subscriber basis, or apply a common RG configuration profile to all GigaCenter units deployed in a network based on OUI or other device attributes that comprise a CPE group.
+
+[[file:65426.png]]
+
+RG configuration using ACS only over-writes the service defined attributes of the GigaFamily device database during the upload process.
+
+** Residential Services Gateway Tutorials
+*** E7 GPON Native Mode Overview
+    [[file:6762_836ge_rsg_hw_arch-(2).jpg]]
+*** GigaCenter Configuration File Creation via ACS
+**** About the Residential Gateway Configuration File
+
+[[https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/prem/op/p-gw-op/ae/800-spg/73052.htm]]
+
+configuration file can be created and uploaded to the GigaCenter, whether operating in Native or External mode.
+
+***** External mode: transfer the configuration file to the GigaCenter via OMCI.
+***** Native mode: using Consumer Connect Plus.
+
+***** Note: From a best practices perspective, Calix recommends using Native Mode via Consumer Connect Plus.
+***** Note: If you have uploaded the configuration file via OMCI (External Mode), you cannot upload a second configuration file via Consumer CONNECT PlusConsumer Connect Plus.
+
+
+* Calix E7/E3-48C/E5-48/E5-48C R2.4 Engineering and Planning Guide
+** GPON Subscriber Access
+*** Home Gateway Overview
+**** Configuration File Process Flow
+[[https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/pi/planning-resources/net-plan/eap-r24/72256.htm]]
+
+[[file:72257.png]]
+
+**** HGW Management Interfaces
+[[https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/pi/planning-resources/net-plan/eap-r24/66252.htm]]
+
+***** The following example graphic shows a configuration where P-Series ONTs are automatically created on the GPON system using SmartActivate.
+[[file:67708.png]]
+
+***** TR-069 and Consumer Connect Auto Configuration Server
+****** The TR-069 client can be configured to run in the following management modes:
+******* In-band runs on an existing WAN interface. Typically, the path to the ACS server utilizes an existing RG service, such as Gateway Service: 1 (HSI).
+******* Out-of-band runs on its own WAN interface. An independent VLAN outside of the service VLANs is provisioned on HGW ONTs to facilitate communication to the ACS service.

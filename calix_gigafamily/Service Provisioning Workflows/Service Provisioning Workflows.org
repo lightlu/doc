@@ -1,0 +1,23 @@
+# -*- toc: nil; after-save-hook: org-html-export-to-html; org-export-in-background: t; -*-
+* Service Provisioning Workflows
+https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/sysop/e7-ud/r2-5/gpon-ag/index.htm?toc3679820.htm?68797.htm
+** Overview: HGW Applications - TR-069
+
+*** To configure an HGW application using TR-069
+
+**** Step 1. Configure the gateway services as described.
+
+***** Overview: HGW Applications - External Mode
+https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/sysop/e7-ud/r2-5/gpon-ag/index.htm?toc3679820.htm?68797.htm
+
+**** Step 2. Create an RG Management Profile to specify the location of the CC server.
+
+***** RG management profile
+https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/sysop/e7-ud/r2-5/gpon-ag/index.htm?toc3679820.htm?68797.htm
+
+**** Step 3. Configure the RG Interface to specify the RG management profile.
+
+***** ONT Residential Gateway Interface
+https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/sysop/e7-ud/r2-5/gpon-ag/index.htm?toc3679820.htm?68797.htm
+
+**** Step 4. Log in to Consumer Connect Administrator.

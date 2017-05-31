@@ -1,0 +1,22 @@
+# -*- toc: nil; after-save-hook: org-html-export-to-html; org-export-in-background: t; -*-
+* Calix E7/E3-48C/E5-48/E5-48C R2.4 Engineering and Planning Guide
+https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/pi/planning-resources/net-plan/eap-r24/index.htm?toc.htm?69438.htm
+
+** GPON Subscriber Access
+*** Home Gateway Overview
+**** Configuration File Process Flow
+[[https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/pi/planning-resources/net-plan/eap-r24/72256.htm]]
+
+[[file:72257.png]]
+
+**** HGW Management Interfaces
+[[https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/e-series/pi/planning-resources/net-plan/eap-r24/66252.htm]]
+
+The following example graphic shows a configuration where P-Series ONTs are automatically created on the GPON system using SmartActivate.
+
+[[file:67708.png]]
+
+- TR-069 and Consumer Connect Auto Configuration Server
+ - The TR-069 client can be configured to run in the following management modes:
+  - In-band runs on an existing WAN interface. Typically, the path to the ACS server utilizes an existing RG service, such as Gateway Service: 1 (HSI).
+  - Out-of-band runs on its own WAN interface. An independent VLAN outside of the service VLANs is provisioned on HGW ONTs to facilitate communication to the ACS service.

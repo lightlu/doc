@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-05-17 三 14:54 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="light" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Calix GigaFamily Service Provider's Guide</a></li>
+<li><a href="#orgheadline6">2. <span class="underline">GigaFamily Overview</span></a>
+<ul>
+<li><a href="#orgheadline2">2.1. Content</a></li>
+<li><a href="#orgheadline3">2.2. <span class="underline">About the Home Gateway</span></a></li>
+<li><a href="#orgheadline4">2.3. <span class="underline">Concurrent Management</span></a></li>
+<li><a href="#orgheadline5">2.4. <span class="underline">GigaCenter Management Architecture - GPON</span></a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">3. <span class="underline">GigaCenter Active Ethernet Provisioning Model</span></a>
+<ul>
+<li><a href="#orgheadline11">3.1. <span class="underline">844GE GigaCenter Management Architecture</span></a>
+<ul>
+<li><a href="#orgheadline7">3.1.1. <span class="underline">Native Mode</span></a></li>
+<li><a href="#orgheadline8">3.1.2. <span class="underline">External Mode via RG Configuration File</span></a></li>
+<li><a href="#orgheadline9">3.1.3. <span class="underline">TR-069 Management</span></a></li>
+<li><a href="#orgheadline10">3.1.4. <span class="underline">Communicating with Consumer Connect Plus (CMS AE Management Mode)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline26">4. <span class="underline">Turning up a GigaFamily Device</span></a>
+<ul>
+<li><a href="#orgheadline14">4.1. <span class="underline">Home Gateway Management Interfaces</span></a>
+<ul>
+<li><a href="#orgheadline13">4.1.1. <span class="underline">RG Configuration File via OMCI</span></a></li>
+</ul>
+</li>
+<li><a href="#orgheadline25">4.2. <span class="underline">GigaFamily Activation and Configuration Options - GPON</span></a>
+<ul>
+<li><a href="#orgheadline24">4.2.1. <span class="underline">GigaCenter Default Residential Gateway Configuration File</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Calix GigaFamily Service Provider's Guide</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/prem/op/p-gw-op/ae/800-spg/index.htm?toc.htm?77423.htm">https://www.calix.com/content/calix/en/site-prod/library-html/systems-products/prem/op/p-gw-op/ae/800-spg/index.htm?toc.htm?77423.htm</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> <span class="underline">GigaFamily Overview</span></h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Content</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>GigaCenter 844G, 844GE, 854G</li>
+<li>812G/813G/818G GigaHub</li>
+</ul>
+
+<p>
+GigaHubs support the same Home Gateway functionality as the Calix GigaCenter solution.
+</p>
+
+<p>
+Note: GigaHubs do not support the Active Ethernet topology however they can be subtended off of an Active Ethernet ONT.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> <span class="underline">About the Home Gateway</span></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+GigaFamily products utilize a common residential gateway service model shared across all Calix ONT, RSG, and GigaFamily products including:
+</p>
+
+<ul class="org-ul">
+<li>836GE RSG</li>
+<li>700GE Series ONTs</li>
+<li>844G and 854G GigaCenter (GPON only)</li>
+<li>844E GigaCenter (Ethernet only)</li>
+<li>812G and 813G GigaHub (GPON only)</li>
+<li>844GE GigaCenter (GPON and Active Ethernet)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.3</span> <span class="underline">Concurrent Management</span></h3>
+<div class="outline-text-3" id="text-2-3">
+
+<div class="figure">
+<p><img src="7059_concurrent_mgmt.jpg" alt="7059_concurrent_mgmt.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> <span class="underline">GigaCenter Management Architecture - GPON</span></h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+GigaFamily products running in GPON mode combine GPON access technology with gateway functionality and divides these tasks into two separate partitions:
+</p>
+
+<p>
+The GPON partition that provides the WAN access as well as voice services and GigaCenter management.
+The Home Gateway partition that offers LAN and wireless network support as well as Home Gateway services such as LAN routing, and TR-069 client management.
+</p>
+
+<p>
+An overview of the GPON system architecture is shown below for reference.
+</p>
+
+
+<div class="figure">
+<p><img src="7084_844g_architecture.jpg" alt="7084_844g_architecture.jpg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">3</span> <span class="underline">GigaCenter Active Ethernet Provisioning Model</span></h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.1</span> <span class="underline">844GE GigaCenter Management Architecture</span></h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">3.1.1</span> <span class="underline">Native Mode</span></h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Native mode works in concert with CMS to provision the HSI WAN interface, connection type, and ACS credentials.
+</p>
+
+<p>
+In GPON mode, the E7 and 844GE uses OMCI to provision service interfaces.
+</p>
+
+<p>
+In Active Ethernet mode, the CMS sends its provisioning state to Consumer Connect Plus and uses TR-069 to configure service interfaces.
+</p>
+
+<p>
+Native mode is limited to a single VLAN (HSI service) on the RG WAN interface. Voice and legacy Layer-2 services are still natively supported for non-RG ports. Native mode allows provisioning of a UNI port to be a member of either the RG (Residential Gateway), Half-bridge or Full-bridge (video only) interface group.
+</p>
+
+<ul class="org-ul">
+<li>Residential Gateway (RG) Mode</li>
+</ul>
+<p>
+RG services are mapped to routed interfaces, supporting up to four service VLANS. A single routed service may have a multicast profile assigned and may include MVR support. Static routes can be provisioned using the EWI interface, RG configuration file or DHCP Option-121.
+</p>
+
+<ul class="org-ul">
+<li>Half-Bridge (HB) Mode</li>
+</ul>
+<p>
+In Half-bridge mode, the port operates as a normal Layer-2 bridged service port. This operation allows traffic to only pass between the WAN and LAN ports and restricts traffic from passing between LAN ports within the same bridge.
+</p>
+
+<ul class="org-ul">
+<li>Full-Bridge (FB) Mode for IPTV</li>
+</ul>
+<p>
+With Full-bridge mode, traffic passes between LAN ports within the same bridge.
+</p>
+
+<p>
+Note: Support of Full-Bridge is for video multicast services only.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">3.1.2</span> <span class="underline">External Mode via RG Configuration File</span></h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+When deploying in external mode, a configuration file is downloaded to the 844GE GigaCenter using Consumer Connect Plus to manage all gateway functions. CMS with CC+ support does not provision the GigaCenter WAN interface directly since the file download mechanism requires TR-069 file transfer.
+</p>
+
+<p>
+When using an RG configuration file, a service provider can define up to four Routed WAN interfaces supporting data, IPTV, and auxiliary service VLANs as necessary. The RG configuration can explicitly define these service VLANs along with any required service static routes to bridge traffic on the LAN and wireless interfaces to the correct service VLAN.
+</p>
+
+<p>
+In External Mode, CMS still creates and applies service-tag actions, bandwidth profiles, and multicast profiles when adding the service to the RG. The service-match list and service-tag action must match the RG WAN interface VLAN, as specified in the configuration file.
+</p>
+
+<ul class="org-ul">
+<li>Key External Mode Attributes
+<ul class="org-ul">
+<li>The Gateway partition is controlled by the configuration file</li>
+<li>The 844GE partition is controlled by CMS via CC+</li>
+<li>When a configuration file is loaded on the 844GE, there are three elements that remain specific to each unit:
+<ul class="org-ul">
+<li>Admin Password</li>
+<li>SSID</li>
+<li>WPA/WPA2 Key</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">3.1.3</span> <span class="underline">TR-069 Management</span></h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+For the 844GE in AE mode, Calix is leveraging the industry standard TR-069 to manage all aspects of access as well as RG Home Gateway functionality.
+</p>
+
+<ul class="org-ul">
+<li>GigaCenters TR-069 client can be configured to run in the following management modes:
+
+<ul class="org-ul">
+<li>In-band runs on an existing WAN interface. Typically, the path to the ACS server utilizes an existing RG service such as HSI service.</li>
+
+<li>Out-of-band runs on its own WAN interface. An independent VLAN outside of the service VLANs is provisioned on GigaCenter to facilitate communication to the ACS service.</li>
+</ul></li>
+
+<li>Key Configuration Considerations
+
+<ul class="org-ul">
+<li>GigaCenters management mode (native or external) is irrelevant to the functionality of the TR-069 client configured on the RG.</li>
+<li>The system-default RG management profile provides in-band TR-069 management by default.</li>
+<li>Both in-band and out-of-band can be used as a means to provide a unicast path from the TR-069 client to the ACS server.</li>
+<li>The TR-069 management VLAN configuration is sent to the GigaCenter via OMCI or SNMP and causes a WAN service to be created within the GigaCenter.</li>
+<li>A routable path must exist between the WAN IP of the provisioned WAN interface on the GigaCenter and the CC+ server or any ACS, whether the service provider is using public or private IPs on the RG interfaces.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">3.1.4</span> <span class="underline">Communicating with Consumer Connect Plus (CMS AE Management Mode)</span></h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+A local in-network SNMP trap server can be used to help facilitate communication of the 844GE to CC+. During the initial boot-up of the 844GE (using Smart Activate), CMS uses SNMP to instruct (provision) the GigaCenter as to how it can reach CC+ if the 844GE has an RG management profile.
+</p>
+
+<p>
+Note: If the RG does not have an RG management profile, CMS will not use SNMP and the TR-069 client stays bound to VLAN 85.
+</p>
+
+
+<div class="figure">
+<p><img src="84012.png" alt="84012.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">4</span> <span class="underline">Turning up a GigaFamily Device</span></h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">4.1</span> <span class="underline">Home Gateway Management Interfaces</span></h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+The following example graphic shows a configuration where P-Series ONTs are automatically created on the GPON system using Smart Activate.
+</p>
+
+
+<div class="figure">
+<p><img src="7065_management.jpg" alt="7065_management.jpg" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Management Options. The following methods can be used to Manage HGWs:
+
+<ul class="org-ul">
+<li>RG Configuration File via OMCI</li>
+<li>Home Gateway Embedded Web Interface (EWI), Local or Remote Access (detailed in the previous topic)</li>
+<li>TR-069 and Consumer Connect Plus Auto Configuration Server</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">4.1.1</span> <span class="underline">RG Configuration File via OMCI</span></h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+The scope of HGW settings controlled by the RG configuration file depends on the type of OLT (C7, E7, etc.).
+</p>
+
+<p>
+Applying a new RG configuration file will reset the RG configuration on the HGW. If a subscriber has modified items such as Primary SSID, Primary PSK, or Admin Password via the EWI, these changes will be lost when the new RG configuration file is applied.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">4.2</span> <span class="underline">GigaFamily Activation and Configuration Options - GPON</span></h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">4.2.1</span> <span class="underline">GigaCenter Default Residential Gateway Configuration File</span></h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+During the start-up sequence the GigaFamily device establishes a connection to the E7 OLT and downloads via TFTP a new operational image. Within this operational image is a "factory default" configuration that defines the TR-98 standard and Calix specific objects required to initialize the residential gateway and wireless interface.
+</p>
+
+<p>
+The RG Routed WAN interface will default on VLAN 4 if undefined, or use a service tag action to add a VLAN ID explicitly to the interface.
+</p>
+
+
+<div class="figure">
+<p><img src="6849_rsg_default_configurat.jpg" alt="6849_rsg_default_configurat.jpg" />
+</p>
+</div>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline18"></a><span class="underline">Retrieving and Applying a Configuration File</span><br  /><ol class="org-ol"><li><a id="orgheadline15"></a><span class="underline">Configuration File Management Actions</span><br  /><div class="outline-text-6" id="text-4-2-1-1-1">
+<p>
+<img src="Configuration%20File%20Management%20Actions%20Parameters%20g1.png" alt="Configuration%20File%20Management%20Actions%20Parameters%20g1.png" />
+<img src="Configuration%20File%20Management%20Actions%20Parameters%20g2.png" alt="Configuration%20File%20Management%20Actions%20Parameters%20g2.png" />
+</p>
+</div></li>
+
+<li><a id="orgheadline16"></a><span class="underline">Configuration Management Notes</span><br  /><div class="outline-text-6" id="text-4-2-1-1-2">
+<p>
+Calix recommends that the E7 manages firmware and RG configuration files based on product code, with the exception of the GigaHub "P2" product code group.
+</p>
+
+<p>
+Note: For the "P2" product code category that includes GigaHubs with and without WiFi capabilities, you must generate an RG configuration file for each type and retrieve the appropriate file based on product code plus model number criteria.
+</p>
+
+<p>
+Note: The ONT must be reset to factory default values before downloading new configuration files. This can be accomplished by either pressing and holding the reset button for 20 seconds or using the EWI.
+</p>
+</div></li>
+
+<li><a id="orgheadline17"></a><span class="underline">Managing Configuration Files</span><br  /></li></ol></li>
+
+<li><a id="orgheadline19"></a><span class="underline">Home Gateway Configuration via Local Access</span><br  /><div class="outline-text-5" id="text-4-2-1-2">
+
+<div class="figure">
+<p><img src="65420.png" alt="65420.png" />
+</p>
+</div>
+</div></li>
+
+<li><a id="orgheadline22"></a><span class="underline">Home Gateway Configuration via Consumer Connect Plus</span><br  /><div class="outline-text-5" id="text-4-2-1-3">
+<p>
+a service provider can apply a common, pre-defined RG configuration over multiple GigaFamily units using Consumer Connect Plus.
+</p>
+
+
+<div class="figure">
+<p><img src="65426.png" alt="65426.png" />
+</p>
+</div>
+
+<p>
+Similar to the restore function when using Remote Management access, when externally provisioning the RSG using an ACS, the device specific attributes such as Administer Username and Password, SSID and WPA/WPA2-AES key are maintained. RG configuration using ACS only over-writes the service defined attributes of the GigaFamily device database during the upload process.
+</p>
+
+<p>
+Similar to the prior Home Gateway configuration scenario, Consumer Connect Plus can be used to either create an initial service profile on first installation, or restore a subscriber’s RG profile back to a last known configuration. An added benefit of Consumer Connect Plus is the ability to dynamically monitor GigaFamily performance and individually manage the subscribers RG attributes, including Administrator Username and Password, SSID name, and security keys.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline20"></a><span class="underline">About Consumer Connect Plus</span><br  /></li>
+
+<li><a id="orgheadline21"></a><span class="underline">Configuring the ACS through CMS</span><br  /></li></ol></li>
+
+<li><a id="orgheadline23"></a><span class="underline">About Option-43 for Consumer Connect</span><br  /><div class="outline-text-5" id="text-4-2-1-4">
+<p>
+For GigaFamily devices, Option-43 allows the DHCP server to auto-set the ACS URL in order to use all of the voice provisioning and wireless analyzer features built into Consumer CONNECT Plus.
+</p>
+
+<p>
+The device includes a default Username and Password, or also supports a new RG CFG file or TR-069 re-direct file to change the Username and Password.
+</p>
+
+<p>
+Residential Data Services, Provisioning of Compass URL or 3rd Party ACS via Option-43
+</p>
+
+
+<div class="figure">
+<p><img src="6990_844e_use_case3.jpg" alt="6990_844e_use_case3.jpg" />
+</p>
+</div>
+</div></li></ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: light</p>
+<p class="date">Created: 2017-05-17 三 14:54</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
