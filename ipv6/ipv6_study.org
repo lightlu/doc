@@ -1,0 +1,256 @@
+
+* 較大的位址空間
+** IPv6 使用128個位元加以定址網際網路節點
+
+* 整合認證及安全的機制
+** IPv6協定設計時已考量網路安全功能，希望提供內嵌式的點對點安全保護能力，以提供未來網際網路一個更安全的資料交換方式。
+** IPv6係利用Next Header中的認證表頭(Authentication Header，AH)及資料封裝加密(Encapsulating Security Payload，ESP)Header對傳輸的資料進行認證及加密，故未來使用者將不需透過額外的設備或軟體就可以達到網路安全的功效。
+
+
+* 較佳的路由效率及最佳化
+IPv6 將位址空間使用階層式的方式劃分為
+Top Level Aggregator Identifier、
+Next Level Aggregator Identifier、
+Site Level Aggregator Identifier三層，
+各層負責授權IP網段給其下層的機構，此種管理方式使得交換的路由資訊可以經由彙整變得非常精簡。
+此外，IPv6亦支援anycast 的功能，藉由從路由器的路由表中挑選出一台最佳(最短距離或最小花費等)的主機，從而縮短回應時間並將流量負載分散及節省頻寬。
+
+* 服務品質的保證
+IPv6的表頭中，保留了Flow Label的欄位，可和Multiple Protocol Label Switch(MPLS)的技術相配合，不同的資料流對應到不同的Flow Label，可做為服務品質控制的依據。
+IPv6在表頭加入兩項參數，包括資料流種類(Traffic Class)與資料流標記(Flow Label)將有助於服務品質控制機制的設計。
+
+自動設定及行動性的功能
+支援行動IP機制中的另一項重要特性即藉由網路芳鄰找尋( Neighbor Discovery )與自動定址 (Auto-configuration)機制來簡化使用者IP位址的設定。IPv6網路上的主機可自動取得IP不需透過手動設定。而利用Extension Header的Destinetion Header與Routing Header，將使行動通訊中之路由機制獲得最佳化，解決了三角路由(triangle route)的問題。
+
+* 自動定址(Auto-configuration)機制包括全狀態自動配置(Stateful Auto-configuration)及無狀態定址自動配置(Stateless Address　Autoconfiguration , SLAAC)。
+
+** 全狀態自動配置
+IPv6 繼承了IPv4的DHCP自動配置服務，並將其稱為全狀態自動配置 ( Stateful Auto-configuration )。
+
+** 無狀態自動配置
+在無狀態自動配置過程中，主機首先啟動IPv6 協定，產生一個Link-local IPv6位址
+IEEE已經將網卡MAC位址由48位元改為 EUI-64 格式，即將主機採用的網卡的MAC位址(48 bits)中間加入0xFFFE成為 64 bits。
+接著主機向該位址發出一個被稱為芳鄰找尋(Neighbor Discovery)的請求，以驗證位址的唯一性。如果請求沒有得到回應，則表明主機自我設置的Link-local IPv6位址是唯一的。
+否則，主機將使用一個隨機產生的介面ID組成一個新的Link-local IPv6位址。然後，以該位址為來源位址，主機向本地鏈接中所有路由器多點播送一個被稱為路由器請求(Router Solicitation)的配置信息請求，路由器以一個包含一個可聚合全球單點播送位址和其它相關配置信息的路由器公告回應該請求。
+主機用它從路由器得到的全局位址首碼加上自己的Interface ID，自動配置IPv6位址，然後就可以與Internet中的其它主機通信了。
+例如，當企業更換了連接Internet的ISP時，將從新ISP處得到一個新的可聚合全球位址首碼。ISP把這個位址首碼從它的路由器上傳送到企業路由器上。由於企業路由器將周期性地向本地鏈接中的所有主機多點播送路由器公告，因此企業網路中所有主機都將通過路由器公告收到新的位址首碼，此後它們就會自動產生新的IP位址並覆蓋舊的IP位址。對於網管人員而言，在 Re-numbering IP位址時有很大的方便性與效率。
+
+* 封包表頭處理更有效率
+IPv6簡化原先IPv4的表頭設計，雖然IP位址從原來的32位元加長四倍成為128位元，但表頭長度僅成長兩倍且固定長度，因為IPv6將「可選擇性擴充部分」與「IP 切割」的功能刪除成為固定檔頭長度。除此之外亦同時刪除檢查碼(Checksum)並盡可能將每個欄位對齊在位元組上，這樣固定長度與對齊的設計讓表頭簡化許多，在處理封包表頭時將更有有效率。
+
+* 可擴充性
+刪除了原先IPv4可選擇性擴充部分，IPv6設計以「下一表頭(Next Header)」的方式來增加表頭的可擴充性。使用者可以透過「下一表頭(Next Header)」的方式自行在表頭中指示下一個表頭的內容以利網路端或是接收端完成特定的工作，其為IPv6可擴充性設計的實施範例，這樣的設計讓IPv6檔頭具更高的擴充性。
+
+
+* HiNet IPv6發展演進
+2000 年二月 中華電信HiNet獲得由APNIC分配之 2001:238::/35 IPv6商用位址區段。
+2002 年七月 中華電信HiNet 升級至 2001:238::/32 IPv6商用位址區段。
+2002 年十月 TWIXv6獲得由APNIC分配之 2001:07FA:0001::/48 IX IPv6 商用位址區段。
+
+
+* IPv6位址配置技術
+** (1)人工配置位址(適合網路設備及伺服器主機)：
+與IPv4網路設定固定位址的做法相同，逐台主機人工配置IPv6位址、預設閘道與DNS伺服器位址。一般而言，路由器與DMZ伺服器的IPv6位址建議採用人工配置，以方便於防火牆設定資安政策，IPv6位址尾碼可以選擇與IPv4位址相同，便於管理及記憶。在使用固定位址的DMZ網段，建議要關閉RA (Router Advertisement)的發送，以避免成為資安漏洞。
+
+** (2)SLAAC+RDNSS(目前較適合智慧物件連網)：
+SLAAC是IPv6通訊協定才有的功能，做法是透過定期經由Multicast發出Router Advertisement (RA)的封包，網路上的主機經由RA會收到IPv6 Prefix(也就是Network ID)及Default Gateway的資訊，主機組合收到的Prefix及自動產生的Host ID(主機識別碼)即為該主機的IPv6位址。由於位址核發後即不再持續管理這個位址的使用情形，所以稱為「無狀態」。
+
+上述提到的主機識別碼(Host ID)有兩種產生方式，一種是使用EUI-64運算法，從主機的MAC address轉換而來，另一種是使用亂數法產生。
+選擇使用哪一種方式的控制權在主機本身，以微軟作業系統為例，Win 7內定使用亂數法，Windows XP使用EUI-64，如要改變，可藉由cmd命令列指令修改
+
+SLAAC不支援發送DNS伺服器位址，雖然新修訂的SLAAC RDNSS標準已解決這個問題。電腦主機對外連線大多透過DNS進行網域名稱與IP位址的解析，缺乏DNS將對網路連線造成極大不便。智慧物件通常不需要主動對外連網，網路環境也越單純越好，SLAAC標準將有助於物件連網的發展。
+
+** (3) SLAAC+Stateless DHCPv6 (適合不須嚴格資安查核場所)
+這個做法是結合SLAAC及DHCPv6進行無狀態位址自動配置，RA負責IPv6位址及Default Gateway指配，DHCPv6則提供DNS伺服器位址及其他資訊(如NTP)。實作上是在路由器上設定發送O-bit為1的RA封包，用戶端主機收到RA會再向DHCPv6伺服器請求DNS伺服器位址。
+
+SLAAC的機制並不會進行IPv6位址的更新維護及使用追蹤，所以稱為無狀態DHCPv6定址(Stateless DHCPv6)。在資安管理上不易由IPv6位址追蹤到使用者，因此比較適合不須嚴格進行資安查核管理的場所使用，例如私人家裡。
+
+** (4) Stateful DHCPv6(適合需要嚴格進行資安查核管理場所)
+在這個做法裡RA只負責提供Default Gateway，IPv6位址配置(包括Prefix、Host ID)及DNS伺服器位址等資訊均由DHCPv6負責。實作上是設定RA封包的M-bit及O-bit均為1，用戶端主機收到RA會再向DHCPv6伺服器請求IPv6位址及DNS伺服器位址。
+
+由於DHCPv6會記錄IPv6位址與MAC位址的對應表，並經由定期位址更新維護使用紀錄，所以稱為全狀態DHCPv6位址自動配置(Stateful DHCPv6)，對於需要嚴格進行資安查核管理場所是比較恰當的做法。由於DHCPv6無法提供Default Gateway的資訊，所以Stateful DHCPv6仍需要與RA配合運作，將來DHCPv6可能會發展出提供Default Gateway的機制，這樣就不需要RA的協助。
+
+* IPv6位址核發技術比較表
+    |              | 預設 | 位址 | DNS  | 說明                                                      |
+    |              | 閘道 | 指配 |      |                                                           |
+    |--------------+------+------+------+-----------------------------------------------------------|
+    | 人工配置位址 | 手動 | 手動 | 手動 | 手動設定無彈性且麻煩，但穩定可靠且較無資安疑慮。          |
+    |              |      |      |      | 適合用於伺服器及網路設備。                                |
+    |--------------+------+------+------+-----------------------------------------------------------|
+    | SLAAC RDNSS  | RA   | RA   | RA   | 簡單方便，但無法管理位址發放策略及保存位址使用紀錄，      |
+    |              |      |      |      | 適合使用於物件連網的應用服務。                            |
+    |--------------+------+------+------+-----------------------------------------------------------|
+    | Stateless    | RA   | RA   | DHCP | 簡單方便，但無法管理位址發放策略及保存位址使用紀錄，      |
+    | DHCPv6       |      |      |      | 可透過 DHCPv6 提供 DNS ，但 Windows XP 需外掛 DHCPv6 程式 |
+    |              |      |      |      | 。適合家用環境。                                          |
+    |--------------+------+------+------+-----------------------------------------------------------|
+    | Stateful     | RA   | DHCP | DHCP | 可依據資安需要訂定位址發放策略及保存位址使用紀錄，        |
+    | DHCPv6       |      |      |      | 但 Prefix 與 Gateway 分開管理，增加網路偵錯的難度，       |
+    | (建議採用)   |      |      |      | 另外 Windows XP 需配合外掛 DHCPv6 程式。適合辦公室環境。  |
+
+* 如果ISP還未提供雙協定服務，Home Gateway可透過隧道(Tunneling)的技術，將IPv6封包封裝在IPv4裡進行傳輸，主要的隧道技術有IPv6 in IPv4 Tunnel、6to4、6rd等
+
+* ISP通常分配Prefix長度為64位元的IPv6位址(簡寫給為 /64)給一個Home Gateway的內網使用，64位元的Prefix就是電腦主機的Network ID (網路識別碼)，後64位元的Host ID (主機識別碼)則是內網電腦可以自由使用的部分，組合Network ID及Host ID就是內網電腦的IPv6位址。
+
+* IPv4地址可以很容易的转化为IPv6格式。举例来说，如果IPv4的一个地址为135.75.43.52（十六进制为0x874B2B34），它可以被转化为0000:0000:0000:0000:0000:0000:874B:2B34或者::874B:2B34。同时，还可以使用混合符号（IPv4-compatible address），则地址可以为::135.75.43.52。
+
+
+* IP Address
+Each device will have an IP address still, but instead of an IPv4 address, it’ll have an IPv6 address.  Other than the length and slightly different look, this concept is identical
+
+* Subnet Mask
+it’ll look like IPV6ADDRESS/64 or IPV6ADDRESS/112.  But when you actually key in the IPv6 address on a system, that /64 or /112 will convert to a hexadecimal number that’ll be in the middle of the IPv6 Address.  So when you see an IPv6 address, while it is really long, it actually includes the Network Address: Subnet: Device IP Address in that long address string.
+
+* Gateway Address
+The concept of the network gateway in IPv6 is the same as in IPv4, a gateway address will be designated noting how traffic can be routed out of the current subnet
+
+* How you officially get a block of IPv6 address
+
+Usually the answer is that you got them from your Internet Service Provider (ISP)
+
+* how about Private (internal) network addresses, do they exist in IPv6?
+answer is Yes.
+you can use IPv6 private addressing, or what is called Unique Local Addresses (ULA). In the IPv4 world, private addresses include 10.0.0.0-10.255.255.255, and 172.16.0.0-172.31.255.255, and 192.168.0.0-192.168.255.255.  In the Ipv6 world, the ULA space is fc00::/7, or basically anything that starts with FD in the IPv6 address, so fdxx:xxxx:xxxx…
+
+* How to subnet IPv6
+
+it’s not just one massively long IP address.  It’s actually broken down into 3 parts, the Network Address, the Subnet Address, and the Device Address.
+
+The Network Address is the first 48-bits of the address, or since
+they are grouped in 16-bit groupings, effectively the first 3 groups
+of numbers designate the network.
+If you are doing Unique Local Addressing (ie: IPv6 private addressing), you could effectively just address it as fd00:0000:0000 where fd designates this as a ULA, and that you are working with a single common network.
+
+The Subnet Address is the next 16-bits of the address, or as
+addresses are grouped in 16-bit groupings, the next group in the IPv6
+string.
+IPv6 is more efficient than IPv4 as each packet has everything a router needs to route the information along, instead of having to add or append routing information, or look to a completely separate subnet mask parameter to work backwards into the address.
+
+The last 64-bits (or 4 groupings) is the unique device address
+
+
+* Interface ID 產生方式
+1.採用modified EUI-64 演算法，經由MAC Address計算出Interface 位址
+2.作業系統自動產生隨機位址
+3.手動設定
+4.Tunnel Server系統自動產生或指定
+5.經由加密機制產生之虛擬位址(IPv6 IPSec)
+6.DHCPv6伺服器指定(Stateful)
+
+* 由MAC Address 產生Interface ID
+1.First three octets of MAC is Company-ID
+2.Last three octets of MAC is Node-ID
+3.將FFFE置入Company ID與Node-ID間
+4.Company ID 2進位表示法之第7碼為Univeral/Local-Bit，設為1表示Global Scope
+如: MAC Address為00-C0-3F-BB-93-91，則
+1.Company ID 為00-C0-3F, Node ID為BB-93-91
+2.00-C0-3F-FF-FE-BB-93-91
+3.Company ID 2進位表示法為00000000 11000000 00111111
+4.將第7bit改為1，為00000010 11000000 001111111
+5.重組為02-C0-3F
+6.Interface ID為2C0:3FFF:FEBB:9391
+
+[[file:mac_addr_to_intf_id.png]]
+
+* IPv6 Address Space
+
+Last Updated 2017-01-04
+
+https://www.iana.org/assignments/ipv6-address-space/ipv6-address-space.xhtml
+
+| IPv6 Prefix | Allocation           | Reference | Notes                                                 |
+|-------------+----------------------+-----------+-------------------------------------------------------|
+| 0000::/8    | Reserved by IETF     | [RFC4291] | [1] [2] [3] [4] [5]                                   |
+| 0100::/8    | Reserved by IETF     | [RFC4291] | 0100::/64 reserved for Discard-Only Address Block     |
+|             |                      |           | [RFC6666]. Complete registration details are          |
+|             |                      |           | found in [IANA registry iana-ipv6-special-registry].  |
+| 0200::/7    | Reserved by IETF     | [RFC4048] | Deprecated as of December 2004 [RFC4048].             |
+|             |                      |           | Formerly an OSI NSAP-mapped prefix set [RFC4548].     |
+| 0400::/6    | Reserved by IETF     | [RFC4291] |                                                       |
+| 0800::/5    | Reserved by IETF     | [RFC4291] |                                                       |
+| 1000::/4    | Reserved by IETF     | [RFC4291] |                                                       |
+| 2000::/3    | Global Unicast       | [RFC4291] | The IPv6 Unicast space encompasses                    |
+|             |                      |           | the entire IPv6 address range with the exception of   |
+|             |                      |           | ff00::/8, per [RFC4291]. IANA unicast address         |
+|             |                      |           | assignments are currently limited to the IPv6         |
+|             |                      |           | unicast address range of 2000::/3. IANA assignments   |
+|             |                      |           | from this block are registered in [IANA registry      |
+|             |                      |           | ipv6-unicast-address-assignments].                    |
+|             |                      |           | [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]         |
+| 4000::/3    | Reserved by IETF     | [RFC4291] |                                                       |
+| 6000::/3    | Reserved by IETF     | [RFC4291] |                                                       |
+| 8000::/3    | Reserved by IETF     | [RFC4291] |                                                       |
+| a000::/3    | Reserved by IETF     | [RFC4291] |                                                       |
+| c000::/3    | Reserved by IETF     | [RFC4291] |                                                       |
+| e000::/4    | Reserved by IETF     | [RFC4291] |                                                       |
+| f000::/5    | Reserved by IETF     | [RFC4291] |                                                       |
+| f800::/6    | Reserved by IETF     | [RFC4291] |                                                       |
+| fc00::/7    | Unique Local Unicast | [RFC4193] | For complete registration details,                    |
+|             |                      |           | see [IANA registry iana-ipv6-special-registry].       |
+| fe00::/9    | Reserved by IETF     | [RFC4291] |                                                       |
+| fe80::/10   | Link-Scoped Unicast  | [RFC4291] | Reserved by protocol. For authoritative registration, |
+|             |                      |           | see [IANA registry iana-ipv6-special-registry].       |
+| fec0::/10   | Reserved by IETF     | [RFC3879] | Deprecated by [RFC3879] in September 2004.            |
+| ff00::/8    | Multicast            | [RFC4291] | Formerly a Site-Local scoped address prefix.          |
+|             |                      |           | IANA assignments from this block are registered in    |
+|             |                      |           | [IANA registry ipv6-multicast-addresses].             |
+
+
+** Footnotes
+[1]
+::1/128 reserved for Loopback Address [RFC4291].
+Reserved by protocol. For authoritative registration, see [IANA registry iana-ipv6-special-registry].
+
+[2]
+::/128 reserved for Unspecified Address [RFC4291].
+Reserved by protocol. For authoritative registration, see [IANA registry iana-ipv6-special-registry].
+
+[3]
+::ffff:0:0/96 reserved for IPv4-mapped Address [RFC4291].
+Reserved by protocol. For authoritative registration, see [IANA registry iana-ipv6-special-registry].
+
+[4]
+0000::/96 deprecated by [RFC4291]. Formerly defined as the "IPv4-compatible IPv6 address" prefix.
+
+[5]
+The "Well Known Prefix" 64:ff9b::/96 is used in an algorithmic mapping between IPv4 to IPv6 addresses [RFC6052].
+
+[6]
+2001:0000::/23 reserved for IETF Protocol Assignments [RFC2928].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[7]
+2001:0000::/32 reserved for TEREDO [RFC4380].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[8]
+2001:0002::/48 reserved for Benchmarking [RFC5180].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[9]
+2001:3::/32 reserved for AMT [RFC7450].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[10]
+2001:4:112::/48 reserved for AS112-v6 [RFC7535].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[11]
+2001:5::/32 reserved for EID Space for LISP [RFC7954].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[12]
+2001:10::/28 deprecated (formerly ORCHID) [RFC4843].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[13]
+2001:20::/28 reserved for ORCHIDv2 [RFC7343].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[14]
+2001:db8::/32 reserved for Documentation [RFC3849].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
+
+[15]
+2002::/16 reserved for 6to4 [RFC3056].
+For complete registration details, see [IANA registry iana-ipv6-special-registry].
